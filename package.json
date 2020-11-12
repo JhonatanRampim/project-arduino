@@ -1,0 +1,15 @@
+{
+  "name": "project-labduino",
+  "version": "0.0.0",
+  "description": "Projeto backend do projeto integrador V",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jhonatan Eduardo Rampim",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^3.0.1"
+  }
+}
