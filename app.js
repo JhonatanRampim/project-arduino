@@ -1,17 +1,17 @@
-const app = require('express');
+const express = require('express');
+const app = express();
 const sockets = require('./sockets/sockets');
+const temperatureroute = require('./routes/home.route')
+var socketio = require('socket.io')
 
-const http = require('http').createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Content-Length', Buffer.byteLength(content));
-    res.end(content);
-});
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+})
 
-sockets.startSocketServer(http);
-http.listen(3000, () => {
-    console.log('listening on *:3000');
-});
+app.use('/', temperatureroute)
+
+module.exports = app;

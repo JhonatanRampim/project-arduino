@@ -1,7 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const serialport = require('serialport')
+const router = express.Router();
+const controller = require('../controllers/home.controller');
 
-router.use
+router.get('/start', controller.startMotor);
 
 
-module.exports = router;
+module.exports = router
