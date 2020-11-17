@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const sockets = require('./sockets/sockets');
-const temperatureroute = require('./routes/home.route')
+const motorRoute = require('./routes/home.route')
 var socketio = require('socket.io')
 
 
@@ -12,6 +12,8 @@ app.use(function (req, res, next) {
     next();
 })
 
-app.use('/', temperatureroute)
-
+app.use('/motor', motorRoute)
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 module.exports = app;
